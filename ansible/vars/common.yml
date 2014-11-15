@@ -1,0 +1,8 @@
+---
+    php_ppa: php5-5.6
+    doc_root: /vagrant
+    sys_packages: ["vim","git","htop","iotop"]
+    dist: precise
+    php_packages: ["php5-cli","php-pear","php5-curl","php5-imagick","php5-common","php5-dbg","php5-fpm","php5-imap","php5-intl","php5-mcrypt","php5-xcache","php5-xdebug"]
+    bashrc_src: bashrc
+    bashrc_destination: /home/vagrant/.bashrc
