@@ -18,14 +18,14 @@ end
 Vagrant.configure("2") do |config|
 
     config.vm.provider :virtualbox do |v|
-        v.name = "010php"
+        v.name = "dev.010php"
         v.customize ["modifyvm", :id, "--memory", 1024]
     end
 
     config.vm.box = "ubuntu/trusty64"
     config.vm.network :private_network, ip: "192.168.33.100"
     config.ssh.forward_agent = true
-    config.vm.hostname = "dev.010php.nl"
+    config.vm.hostname = "dev.010php"
 
     #############################################################
     # Ansible provisioning (you need to have ansible installed)
