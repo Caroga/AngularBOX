@@ -1,0 +1,21 @@
+{
+    "name": "010php.nl",
+    "version": "0.0.0",
+    "description": "Frontpage for 010php.nl",
+    "main": "Gruntfile.js",
+    "repository": {
+        "type": "git",
+        "url": "git@gitlab.caroga.net:ohtenphp/www-010php-nl.git"
+    },
+    "keywords": [
+        "010php",
+        "010",
+        "php"
+    ],
+    "author": "Roberto Gardenier <roberto@caroga.net>",
+    "license": "MIT",
+    "devDependencies": {
+        "grunt": "^0.4.5",
+        "grunt-bower-task": "^0.4.0"
+    }
+}
