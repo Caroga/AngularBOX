@@ -1,6 +1,7 @@
 010php.nl
 ===================
 This is the 010php main website repository. Many features are yet to be build.  Feel free to fork and help us out ;-).
+
 Prerequisites
 -------------
 Make a new entry in your hosts file to ensure that your browser can resolve the development domain:
@@ -24,6 +25,14 @@ Make sure you have the following tools installed:
 Launching the development environment
 -------
 Since we are using Vagrant this should be as easy as using `vagrant up` after you cloned the repository.
+
+Root directory structure
+-------
+ - **build**: contains build scripts.
+ - **dist**: contains built results, ready to be deployed in a target environment.
+ - **src**: contains our application's source code.
+ - **test**: contains accompanying automated tests.
+ - **vendor**: contains third party dependencies.
 
 Known issues
 -------
