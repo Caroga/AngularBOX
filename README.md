@@ -28,7 +28,6 @@ Since we are using Vagrant this should be as easy as using `vagrant up` after yo
 
 Root directory structure
 -------
- - **build**: contains build scripts.
  - **dist**: contains built results, ready to be deployed in a target environment.
  - **src**: contains our application's source code.
  - **test**: contains accompanying automated tests.
