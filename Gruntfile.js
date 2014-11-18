@@ -24,14 +24,24 @@ module.exports = function (grunt) {
             dist: {
                 src: [
                     'vendor/**/*.js',
-                    'app/*.js'
+                    'src/app/*.js'
                 ],
-                dest: 'dist/js/<%= pkg.name %>-<%= pkg.version %>.js'
+                dest: 'web/js/app.js' //<%= pkg.name %>-<%= pkg.version %>.js
+            }
+        },
+
+        copy: {
+            dist: {
+                flatten: true,
+                src: 'src/index.html',
+                dest: 'web/index.html'
             }
         }
+
     });
 
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 };
 
