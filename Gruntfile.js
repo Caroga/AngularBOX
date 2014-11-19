@@ -23,6 +23,8 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: [
+                    'vendor/angular/angular.js',
+                    'vendor/jquery/jquery.js',
                     'vendor/**/*.js',
                     'src/app/app.js'
                 ],
