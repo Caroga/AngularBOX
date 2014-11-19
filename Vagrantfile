@@ -43,5 +43,5 @@ Vagrant.configure("2") do |config|
     end
 
     ## Commented for later use of NSF sharing the /web folder only.
-    # config.vm.synced_folder "./", "/vagrant", type: "nfs"
+    config.vm.synced_folder "./web", "/vagrant"
 end
