@@ -45,5 +45,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
+
+    grunt.registerTask('default', ['bower:install', 'concat:dist', 'copy:dist']);
 };
 
