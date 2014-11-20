@@ -38,6 +38,16 @@ module.exports = function (grunt) {
                 src: 'src/index.html',
                 dest: 'web/index.html'
             }
+        },
+
+        watch: {
+            scripts: {
+                files: [
+                    'src/**/*.js',
+                    'src/**/*.html'
+                ],
+                tasks: ['compile']
+            }
         }
 
     });
@@ -45,7 +55,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['bower:install', 'concat:dist', 'copy:dist']);
+    grunt.registerTask('compile', ['concat:dist', 'copy:dist']);
 };
 
