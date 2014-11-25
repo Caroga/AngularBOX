@@ -34,9 +34,17 @@ module.exports = function (grunt) {
 
         copy: {
             dist: {
-                flatten: true,
-                src: 'src/index.html',
-                dest: 'web/index.html'
+                files: [{
+                    flatten: true,
+                    src: 'src/index.html',
+                    dest: 'web/index.html'
+                }, {
+                    expand: true,
+                    cwd: 'src/assets/images',
+                    src: '*',
+                    dest: 'web/images/'
+                }
+                ]
             }
         },
 
@@ -44,9 +52,18 @@ module.exports = function (grunt) {
             scripts: {
                 files: [
                     'src/**/*.js',
-                    'src/**/*.html'
+                    'src/**/*.html',
+                    'src/**/*.less'
                 ],
                 tasks: ['compile']
+            }
+        },
+
+        less: {
+            dist: {
+                files: {
+                    "web/css/style.css": ["vendor/**/*.css","src/assets/less/*.less"]
+                }
             }
         }
 
@@ -56,8 +73,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-less');
 
-    grunt.registerTask('default', ['bower:install', 'concat:dist', 'copy:dist']);
-    grunt.registerTask('compile', ['concat:dist', 'copy:dist']);
+    grunt.registerTask('default', ['bower:install', 'concat:dist', 'less', 'copy:dist']);
+    grunt.registerTask('compile', ['concat:dist', 'less', 'copy:dist']);
 };
 
