@@ -52,7 +52,8 @@ module.exports = function (grunt) {
             scripts: {
                 files: [
                     'src/**/*.js',
-                    'src/**/*.html'
+                    'src/**/*.html',
+                    'src/**/*.less'
                 ],
                 tasks: ['compile']
             }
@@ -61,7 +62,7 @@ module.exports = function (grunt) {
         less: {
             dist: {
                 files: {
-                    "web/css/style.css": "vendor/**/*.css"
+                    "web/css/style.css": ["vendor/**/*.css","src/assets/less/*.less"]
                 }
             }
         }
