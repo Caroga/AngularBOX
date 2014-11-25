@@ -74,7 +74,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
 
-    grunt.registerTask('default', ['bower:install', 'concat:dist', 'copy:dist']);
+    grunt.registerTask('default', ['bower:install', 'concat:dist', 'less', 'copy:dist']);
     grunt.registerTask('compile', ['concat:dist', 'less', 'copy:dist']);
 };
 
