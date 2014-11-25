@@ -19,6 +19,7 @@ module.exports = function (grunt) {
         concat: {
             options: {
                 separator: ';',
+                stripBanners: {'block': true, 'line': true},
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
             },
             dist: {
@@ -31,6 +32,15 @@ module.exports = function (grunt) {
                 dest: 'web/js/app.js' //<%= pkg.name %>-<%= pkg.version %>.js
             }
         },
+
+        uglify: {
+            dist: {
+                files: {
+                    'web/js/app.js': 'web/js/app.js'
+                }
+            }
+        },
+
 
         copy: {
             dist: {
@@ -74,8 +84,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask('default', ['bower:install', 'concat:dist', 'less', 'copy:dist']);
-    grunt.registerTask('compile', ['concat:dist', 'less', 'copy:dist']);
+    grunt.registerTask('default', ['bower:install', 'concat:dist', 'uglify:dist', 'less:dist', 'copy:dist']);
+    grunt.registerTask('compile', ['concat:dist', 'less:dist', 'copy:dist']);
 };
 
