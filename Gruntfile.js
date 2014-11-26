@@ -95,10 +95,8 @@ module.exports = function (grunt) {
                 },
                 files: {
                     "web/css/style.css": [
-                        "vendor/bootstrap/variables.less",
-                        "vendor/bootstrap/*.less",
-                        "!vendor/bootstrap/variables.less"
-                        //"src/assets/less/style.less"
+                        "src/assets/less/bootstrap.less",
+                        "src/assets/less/style.less"
                     ]
                 }
             }
