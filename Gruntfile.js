@@ -53,6 +53,11 @@ module.exports = function (grunt) {
                     cwd: 'src/assets/images',
                     src: '*',
                     dest: 'web/images/'
+                },{
+                    expand: true,
+                    cwd: 'vendor/bootstrap',
+                    src: 'glyphicons-halflings-regular.*',
+                    dest: 'web/fonts/'
                 }
                 ]
             }
