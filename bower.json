@@ -22,5 +22,10 @@
         "angular-ui-router": "~0.2.12",
         "bootstrap": "~3.3.1",
         "angular-timer": "~1.1.6"
+    },
+    "exportsOverride": {
+        "bootstrap": {
+            ".": "dist/js/bootstrap.js"
+        }
     }
 }

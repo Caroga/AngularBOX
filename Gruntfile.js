@@ -10,7 +10,7 @@ module.exports = function (grunt) {
                     install: true,
                     verbose: true,
                     cleanTargetDir: true,
-                    cleanBowerDir: true,
+                    //cleanBowerDir: true,
                     bowerOptions: {}
                 }
             }
@@ -58,6 +58,20 @@ module.exports = function (grunt) {
                     cwd: 'vendor/bootstrap',
                     src: 'glyphicons-halflings-regular.*',
                     dest: 'web/fonts/'
+                },{
+                    // Added seperate copy task since grunt-bower cannot handle export overrides properly
+                    cwd: "bower_components/bootstrap",
+                    expand: true,
+                    flatten: true,
+                    src: "less/*.less",
+                    dest: "vendor/bootstrap/"
+                },{
+                    // Added seperate copy task since grunt-bower cannot handle export overrides properly
+                    cwd: "bower_components/bootstrap",
+                    expand: true,
+                    flatten: true,
+                    src: "less/mixins/*.less",
+                    dest: "vendor/bootstrap/mixins"
                 }
                 ]
             }
@@ -76,9 +90,22 @@ module.exports = function (grunt) {
 
         less: {
             dist: {
+                options: {
+                    paths: ['vendor/bootstrap']
+                },
                 files: {
-                    "web/css/style.css": ["vendor/**/*.css","src/assets/less/*.less"]
+                    "web/css/style.css": [
+                        "vendor/bootstrap/variables.less",
+                        "vendor/bootstrap/*.less",
+                        "!vendor/bootstrap/variables.less"
+                        //"src/assets/less/style.less"
+                    ]
                 }
+            }
+        },
+        clean: {
+            dist: {
+                src: ["bower_components"]
             }
         }
 
@@ -90,8 +117,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
-    grunt.registerTask('default', ['bower:install', 'concat:dist', 'uglify:dist', 'less:dist', 'copy:dist']);
-    grunt.registerTask('compile', ['concat:dist', 'less:dist', 'copy:dist']);
+    grunt.registerTask('default', ['bower:install', 'compile']);
+    grunt.registerTask('compile', ['concat:dist', 'copy:dist', 'less:dist', 'clean:dist']);
 };
 
