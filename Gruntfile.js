@@ -55,8 +55,13 @@ module.exports = function (grunt) {
                     dest: 'web/images/'
                 },{
                     expand: true,
-                    cwd: 'vendor/bootstrap',
+                    cwd: 'bower_components/bootstrap/fonts/',
                     src: 'glyphicons-halflings-regular.*',
+                    dest: 'web/fonts/'
+                },{
+                    expand: true,
+                    cwd: 'bower_components/components-font-awesome/fonts',
+                    src: '*',
                     dest: 'web/fonts/'
                 },{
                     // Added seperate copy task since grunt-bower cannot handle export overrides properly
@@ -96,6 +101,7 @@ module.exports = function (grunt) {
                 files: {
                     "web/css/style.css": [
                         "src/assets/less/bootstrap.less",
+                        "vendor/components-font-awesome/font-awesome.css",
                         "src/assets/less/style.less"
                     ]
                 }
