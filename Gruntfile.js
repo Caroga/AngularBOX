@@ -96,7 +96,9 @@ module.exports = function (grunt) {
         less: {
             dist: {
                 options: {
-                    paths: ['vendor/bootstrap']
+                    paths: ['vendor/bootstrap'],
+                    compress: true,
+                    cleancss: true
                 },
                 files: {
                     "web/css/style.css": [
@@ -124,6 +126,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.registerTask('default', ['bower:install', 'compile']);
-    grunt.registerTask('compile', ['concat:dist', 'copy:dist', 'less:dist', 'clean:dist']);
+    grunt.registerTask('compile', ['concat:dist', 'copy:dist', 'less:dist', 'clean:dist','uglify']);
 };
 
