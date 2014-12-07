@@ -1,12 +1,12 @@
-010php.nl
+AngularBOX
 ===================
-This is the 010php main website repository. Many features are yet to be build.  Feel free to fork and help us out ;-).
+The goal of AngularBOX is to provide you with an easy set of tools and libraries already being used and compiled into your application. This way you can just launch your vagrant box and start development of your application. Below are all used libraries and tools.
 
 Prerequisites
 -------------
 Make a new entry in your hosts file to ensure that your browser can resolve the development domain:
 
- - 192.168.33.100	dev.010php
+ - 192.168.33.100	dev.angularbox
 
 Make sure you have the following tools installed:
 
